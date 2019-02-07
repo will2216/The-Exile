@@ -50,12 +50,12 @@ public class spiritMasterCharacter extends AbstractPlayerWithMinions {
     }
 	
 	public spiritMasterCharacter(String name, PlayerClass setClass) {
-		super(name, setClass, orbTextures, "Images/orb/vfx.png", new SpriterAnimation("charassets/animation.scml"));
+		super(name, setClass, orbTextures, "Images/orb/vfx.png", new SpriterAnimation("Images/charassets/animation.scml"));
 		
 		this.dialogX = (this.drawX + 0.0F * Settings.scale); // set location for text bubbles
 		this.dialogY = (this.drawY + 220.0F * Settings.scale); // you can just copy these values
 		
-		initializeClass(null, "charassets/shoulder2.png", "charassets/shoulder.png", "charassets/corpse.png",
+		initializeClass(null, "Images/charassets/shoulder2.png", "Images/charassets/shoulder.png", "Images/charassets/corpse.png",
 				getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 	}
 	
