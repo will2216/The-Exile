@@ -17,7 +17,7 @@ public class Strike_Purple extends AbstractExhileCard {
 	public static final String ID = "Exhile:strike_p";
 	public static final String NAME = "Strike";
     public static final String DESCRIPTION = "Deal !D! damage.";
-    public static final String IMG_PATH = "cards/Strike.png";
+    public static final String IMG_PATH = "Images/cards/Strike.png";
 
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -28,7 +28,7 @@ public class Strike_Purple extends AbstractExhileCard {
     
     
     public Strike_Purple() {
-    	super(ID, NAME, TheExhileMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.EXHILEPURPLE, RARITY, TARGET);
+    	super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, AbstractCardEnum.EXHILEPURPLE, RARITY, TARGET);
     	
     	this.baseDamage = 6;
         this.tags.add(BaseModCardTags.BASIC_STRIKE);
