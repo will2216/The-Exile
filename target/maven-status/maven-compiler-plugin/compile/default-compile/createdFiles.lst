@@ -1,4 +1,6 @@
-spiritMod\patches\AbstractCardEnum.class
-spiritMod\patches\SpiritmasterEnum.class
-spiritMod\spiritMasterCharacter.class
-spiritMod\spiritMasterMod.class
+exhileMod\patches\ExhileEnum.class
+exhileMod\ExhileCharacter.class
+exhileMod\cards\Strike_Purple.class
+exhileMod\cards\AbstractExhileCard.class
+exhileMod\patches\AbstractCardEnum.class
+exhileMod\TheExhileMod.class

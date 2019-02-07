@@ -1,42 +1,55 @@
 package exhileMod.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.*;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import basemod.helpers.BaseModCardTags;
 import exhileMod.TheExhileMod;
+import exhileMod.patches.AbstractCardEnum;
 
 public class Strike_Purple extends AbstractExhileCard {
 
-	public static final String ID = "Slimebound:CaCaw";
-    public static final String NAME;
-    public static final String DESCRIPTION;
-    public static String UPGRADED_DESCRIPTION;
-    public static final String IMG_PATH = "cards/ritual.png";
+	public static final String ID = "Exhile:strike_p";
+	public static final String NAME = "Strike";
+    public static final String DESCRIPTION = "Deal !D! damage.";
+    public static final String IMG_PATH = "cards/Strike.png";
 
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.SPECIAL;
-    private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardStrings cardStrings;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    private static final int COST = 0;
-    private static final int BLOCK = 5;
+    private static final int COST = 1;
     private static final int UPGRADE_BONUS = 3;
     
     
     public Strike_Purple() {
-    	super(ID, NAME, TheExhileMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, CardColor.COLORLESS, RARITY, TARGET);
+    	super(ID, NAME, TheExhileMod.getResourcePath(IMG_PATH), COST, DESCRIPTION, TYPE, AbstractCardEnum.EXHILEPURPLE, RARITY, TARGET);
+    	
+    	this.baseDamage = 6;
+        this.tags.add(BaseModCardTags.BASIC_STRIKE);
+        this.tags.add(AbstractCard.CardTags.STRIKE);
     }
     
+    @Override
+    public AbstractCard makeCopy() {
+        return new Strike_Purple();
+    }
     
-    
+    @Override
+    public void upgrade() {
+        if (!this.upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_BONUS);
+        }
+    }
 
-	
-	
-	static {
-        cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-        NAME = cardStrings.NAME;
-        DESCRIPTION = cardStrings.DESCRIPTION;
-        UPGRADED_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+	@Override
+	public void use(AbstractPlayer p, AbstractMonster m) {
+        com.megacrit.cardcrawl.dungeons.AbstractDungeon.actionManager.addToBottom(new com.megacrit.cardcrawl.actions.common.DamageAction(m, new com.megacrit.cardcrawl.cards.DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 }

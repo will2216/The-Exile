@@ -60,17 +60,17 @@ public class ExhileCharacter extends AbstractPlayerWithMinions {
 	
 	public ArrayList<String> getStartingDeck() {
 		ArrayList<String> retVal = new ArrayList<>();
-		retVal.add("Strike_R");
-		retVal.add("Strike_R");
-		retVal.add("Strike_R");
-		retVal.add("Strike_R");
-		retVal.add("Strike_R");
-		retVal.add("Strike_R");
-		retVal.add("Strike_R");
-		retVal.add("Strike_R");
-		retVal.add("Strike_R");
-		retVal.add("Strike_R");
-		retVal.add("Strike_R");
+		retVal.add("Exhile:strike_p");
+		retVal.add("Exhile:strike_p");
+		retVal.add("Exhile:strike_p");
+		retVal.add("Exhile:strike_p");
+		retVal.add("Exhile:strike_p");
+		retVal.add("Exhile:strike_p");
+		retVal.add("Exhile:strike_p");
+		retVal.add("Exhile:strike_p");
+		retVal.add("Exhile:strike_p");
+		retVal.add("Exhile:strike_p");
+		retVal.add("Exhile:strike_p");
 		return retVal;
 	}
 
@@ -107,7 +107,7 @@ public class ExhileCharacter extends AbstractPlayerWithMinions {
 
 	@Override
 	public AbstractCard.CardColor getCardColor() {
-		return AbstractCardEnum.SPIRITBLUE;
+		return AbstractCardEnum.EXHILEPURPLE;
 	}
 
 	@Override
@@ -155,7 +155,7 @@ public class ExhileCharacter extends AbstractPlayerWithMinions {
 
 	@Override
 	public AbstractPlayer newInstance() {
-		return new ExhileCharacter(this.name, ExhileEnum.SPIRITMASTER);
+		return new ExhileCharacter(this.name, ExhileEnum.EXHILE);
 	}
 
 	@Override
