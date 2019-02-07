@@ -1,4 +1,4 @@
-package spiritMod;
+package exhileMod;
 
 import java.nio.charset.StandardCharsets;
 
@@ -9,19 +9,19 @@ import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import spiritMod.spiritMasterCharacter;
 
 import basemod.*;
 import basemod.interfaces.*;
-import spiritMod.patches.SpiritmasterEnum;
+import exhileMod.ExhileCharacter;
+import exhileMod.patches.ExhileEnum;
 
 @SpireInitializer
-public class spiritMasterMod implements PostInitializeSubscriber,
+public class TheExhileMod implements PostInitializeSubscriber,
 EditStringsSubscriber, 
 EditRelicsSubscriber,
 EditCharactersSubscriber
 {  
-	public static final Logger logger = LogManager.getLogger(spiritMasterMod.class.getName());
+	public static final Logger logger = LogManager.getLogger(TheExhileMod.class.getName());
 	
 	
 	private static final String MODNAME = "Spirit Master";
@@ -35,7 +35,7 @@ EditCharactersSubscriber
     
     
     // !!! creating constructor 
-	public spiritMasterMod() {
+	public TheExhileMod() {
     	BaseMod.subscribe(this);
     }
     
@@ -46,7 +46,7 @@ EditCharactersSubscriber
     	
     	
     	@SuppressWarnings("unused")
-		spiritMasterMod spiritMod = new spiritMasterMod();
+		TheExhileMod spiritMod = new TheExhileMod();
     	
     	
     	logger.info("----------------------------------------------------------------------------");
@@ -57,11 +57,11 @@ EditCharactersSubscriber
 	public void receiveEditCharacters() {
 		logger.info("begin editing characters");
 		
-		logger.info("add " + SpiritmasterEnum.SPIRITMASTER.toString());
-		BaseMod.addCharacter(new spiritMasterCharacter(CardCrawlGame.playerName, SpiritmasterEnum.SPIRITMASTER),
+		logger.info("add " + ExhileEnum.SPIRITMASTER.toString());
+		BaseMod.addCharacter(new ExhileCharacter(CardCrawlGame.playerName, ExhileEnum.SPIRITMASTER),
 				SpiritButton,
 				SpiritPortrait,
-				SpiritmasterEnum.SPIRITMASTER);
+				ExhileEnum.SPIRITMASTER);
 		
 		logger.info("done editing characters");
 	}
@@ -106,5 +106,10 @@ EditCharactersSubscriber
     // !!! json loader
     private static String loadJson(String jsonPath) {
         return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
+    }
+    
+    // !!! resource getter
+    public static final String getResourcePath(String resource) {
+        return "Images/" + resource;
     }
 }

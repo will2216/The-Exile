@@ -1,4 +1,4 @@
-package spiritMod;
+package exhileMod;
 
 import java.util.ArrayList;
 
@@ -17,16 +17,15 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
-import spiritMod.patches.*;
-
 import basemod.animations.SpriterAnimation;
+import exhileMod.patches.*;
 import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
 import kobting.friendlyminions.characters.CustomCharSelectInfo;
 
 import com.megacrit.cardcrawl.helpers.*;
 
 
-public class spiritMasterCharacter extends AbstractPlayerWithMinions {
+public class ExhileCharacter extends AbstractPlayerWithMinions {
 	public static final int ENERGY_PER_TURN = 3; // how much energy you get every turn
 	private static final Color PURPLE = CardHelper.getColor(136.0f, 0.0f, 186.0f);
 	
@@ -49,7 +48,7 @@ public class spiritMasterCharacter extends AbstractPlayerWithMinions {
         return (CustomCharSelectInfo) getLoadout ();
     }
 	
-	public spiritMasterCharacter(String name, PlayerClass setClass) {
+	public ExhileCharacter(String name, PlayerClass setClass) {
 		super(name, setClass, orbTextures, "Images/orb/vfx.png", new SpriterAnimation("Images/charassets/animation.scml"));
 		
 		this.dialogX = (this.drawX + 0.0F * Settings.scale); // set location for text bubbles
@@ -156,7 +155,7 @@ public class spiritMasterCharacter extends AbstractPlayerWithMinions {
 
 	@Override
 	public AbstractPlayer newInstance() {
-		return new spiritMasterCharacter(this.name, SpiritmasterEnum.SPIRITMASTER);
+		return new ExhileCharacter(this.name, ExhileEnum.SPIRITMASTER);
 	}
 
 	@Override

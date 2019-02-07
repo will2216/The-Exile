@@ -1,9 +1,9 @@
-package spiritMod.patches;
+package exhileMod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 
-public class SpiritmasterEnum {
+public class ExhileEnum {
 	@SpireEnum
 	public static AbstractPlayer.PlayerClass SPIRITMASTER;
 }
