@@ -28,7 +28,7 @@ import com.megacrit.cardcrawl.helpers.*;
 
 public class spiritMasterCharacter extends AbstractPlayerWithMinions {
 	public static final int ENERGY_PER_TURN = 3; // how much energy you get every turn
-	private static final Color GREY = CardHelper.getColor(131.0f, 156.0f, 165.0f);
+	private static final Color PURPLE = CardHelper.getColor(136.0f, 0.0f, 186.0f);
 	
 	public static final String[] orbTextures = {
 			"Images/orb/layer1.png", 
@@ -113,7 +113,7 @@ public class spiritMasterCharacter extends AbstractPlayerWithMinions {
 
 	@Override
 	public Color getCardRenderColor() {
-		return GREY;
+		return PURPLE;
 	}
 
 	@Override
@@ -123,7 +123,7 @@ public class spiritMasterCharacter extends AbstractPlayerWithMinions {
 
 	@Override
 	public Color getCardTrailColor() {
-		return GREY;
+		return PURPLE;
 	}
 
 	@Override
