@@ -1,4 +1,4 @@
-package exhileMod;
+package exileMod;
 
 import java.util.ArrayList;
 
@@ -18,14 +18,14 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import basemod.animations.SpriterAnimation;
-import exhileMod.patches.*;
+import exileMod.patches.*;
 import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
 import kobting.friendlyminions.characters.CustomCharSelectInfo;
 
 import com.megacrit.cardcrawl.helpers.*;
 
 
-public class ExhileCharacter extends AbstractPlayerWithMinions {
+public class ExileCharacter extends AbstractPlayerWithMinions {
 	public static final int ENERGY_PER_TURN = 3; // how much energy you get every turn
 	private static final Color PURPLE = CardHelper.getColor(136.0f, 0.0f, 186.0f);
 	
@@ -48,7 +48,7 @@ public class ExhileCharacter extends AbstractPlayerWithMinions {
         return (CustomCharSelectInfo) getLoadout ();
     }
 	
-	public ExhileCharacter(String name, PlayerClass setClass) {
+	public ExileCharacter(String name, PlayerClass setClass) {
 		super(name, setClass, orbTextures, "Images/orb/vfx.png", new SpriterAnimation("Images/charassets/animation.scml"));
 		
 		this.dialogX = (this.drawX + 0.0F * Settings.scale); // set location for text bubbles
@@ -107,7 +107,7 @@ public class ExhileCharacter extends AbstractPlayerWithMinions {
 
 	@Override
 	public AbstractCard.CardColor getCardColor() {
-		return AbstractCardEnum.EXHILEPURPLE;
+		return AbstractCardEnum.EXILEPURPLE;
 	}
 
 	@Override
@@ -155,7 +155,7 @@ public class ExhileCharacter extends AbstractPlayerWithMinions {
 
 	@Override
 	public AbstractPlayer newInstance() {
-		return new ExhileCharacter(this.name, ExhileEnum.EXHILE);
+		return new ExileCharacter(this.name, ExileEnum.EXHILE);
 	}
 
 	@Override

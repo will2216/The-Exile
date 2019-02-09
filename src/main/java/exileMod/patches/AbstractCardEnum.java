@@ -1,9 +1,9 @@
-package exhileMod.patches;
+package exileMod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class AbstractCardEnum {
     @SpireEnum
-    public static AbstractCard.CardColor EXHILEPURPLE;
+    public static AbstractCard.CardColor EXILEPURPLE;
 }

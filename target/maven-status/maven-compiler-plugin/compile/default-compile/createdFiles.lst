@@ -1,6 +1,8 @@
-exhileMod\patches\ExhileEnum.class
-exhileMod\ExhileCharacter.class
-exhileMod\cards\Strike_Purple.class
-exhileMod\cards\AbstractExhileCard.class
-exhileMod\patches\AbstractCardEnum.class
-exhileMod\TheExhileMod.class
+exileMod\patches\ExileEnum.class
+exileMod\ExileCharacter.class
+exileMod\cards\AbstractExileCard.class
+exileMod\cards\Psyche.class
+exileMod\cards\Strike_Purple.class
+exileMod\TheExileMod.class
+exileMod\patches\LibraryTypeEnum.class
+exileMod\patches\AbstractCardEnum.class

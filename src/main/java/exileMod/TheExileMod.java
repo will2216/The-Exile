@@ -1,4 +1,4 @@
-package exhileMod;
+package exileMod;
 
 import java.nio.charset.StandardCharsets;
 
@@ -8,23 +8,25 @@ import org.apache.logging.log4j.Logger;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.*;
 import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import basemod.*;
 import basemod.interfaces.*;
-import exhileMod.ExhileCharacter;
-import exhileMod.cards.*;
-import exhileMod.patches.*;
+import exileMod.ExileCharacter;
+import exileMod.cards.*;
+import exileMod.patches.*;
 
 @SpireInitializer
-public class TheExhileMod implements PostInitializeSubscriber,
+public class TheExileMod implements PostInitializeSubscriber,
 EditStringsSubscriber, 
 EditRelicsSubscriber,
 EditCharactersSubscriber,
 EditCardsSubscriber
 {  
-	public static final Logger logger = LogManager.getLogger(TheExhileMod.class.getName());
+	public static final Logger logger = LogManager.getLogger(TheExileMod.class.getName());
 	
 	
 	private static final String MODNAME = "Spirit Master";
@@ -47,9 +49,9 @@ EditCardsSubscriber
     
     
     // !!! creating constructor 
-	public TheExhileMod() {
+	public TheExileMod() {
     	BaseMod.subscribe(this);
-    	BaseMod.addColor(AbstractCardEnum.EXHILEPURPLE,
+    	BaseMod.addColor(AbstractCardEnum.EXILEPURPLE,
                 PURPLE, PURPLE, PURPLE, PURPLE, PURPLE, PURPLE, PURPLE,
                 ATTACK_PURPLE, SKILL_PURPLE, POWER_PURPLE, ENERGY_ORB_PURPLE,
                 ATTACK_PURPLE_PORTRAIT, SKILL_PURPLE_PORTRAIT, POWER_PURPLE_PORTRAIT,
@@ -63,7 +65,7 @@ EditCardsSubscriber
     	
     	
     	@SuppressWarnings("unused")
-		TheExhileMod spiritMod = new TheExhileMod();
+		TheExileMod spiritMod = new TheExileMod();
     	
     	
     	logger.info("----------------------------------------------------------------------------");
@@ -94,11 +96,10 @@ EditCardsSubscriber
 	public void receiveEditCharacters() {
 		logger.info("begin editing characters");
 		
-		logger.info("add " + ExhileEnum.EXHILE.toString());
-		BaseMod.addCharacter(new ExhileCharacter(CardCrawlGame.playerName, ExhileEnum.EXHILE),
-				SpiritButton,
-				SpiritPortrait,
-				ExhileEnum.EXHILE);
+		logger.info("add " + ExileEnum.EXHILE.toString());
+		ExileCharacter exhilecharacter = new ExileCharacter(CardCrawlGame.playerName, ExileEnum.EXHILE);
+				
+		BaseMod.addCharacter(exhilecharacter, SpiritButton, SpiritPortrait, ExileEnum.EXHILE);
 		
 		logger.info("done editing characters");
 	}
@@ -108,6 +109,10 @@ EditCardsSubscriber
 	public void receiveEditCards() {
 
 		BaseMod.addCard(new Strike_Purple());
+		BaseMod.addCard(new Psyche());
+		
+		UnlockTracker.unlockCard(Strike_Purple.ID);
+		UnlockTracker.unlockCard(Psyche.ID);
 		
 	}
     
@@ -140,4 +145,15 @@ EditCardsSubscriber
     public static final String getResourcePath(String resource) {
         return "Images/" + resource;
     }
+    
+    @SpireEnum
+    public static AbstractCard.CardTags DEMON;
+    @SpireEnum
+    public static AbstractCard.CardTags LESSER;
+    @SpireEnum
+    public static AbstractCard.CardTags STANDARD;
+    @SpireEnum
+    public static AbstractCard.CardTags HIGHER;
+    @SpireEnum
+    public static AbstractCard.CardTags ENHANCING;
 }
